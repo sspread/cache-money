@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+}
+
+#space {
+  height: 200 px;
+  max-height: 25%;
+}
+
+#cache_only {
+  font-size: 30 em;
+}
+
+#url_container {
+  display: none;
+}

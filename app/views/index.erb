@@ -1,4 +1,16 @@
-<form name="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
+<h1 id="cache_only">Cache Only</h1>
+<div id="space"> </div>
+<br>
+<div id="logo">
+  <h1><i class="fa fa-upload fa-5x"></i></h1>
+</div>
+
+<form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
   <input type="file" name="filepath" require="" multiple="multiple" autofocus="" value="Upload File">
-  <button type="submit">Upload</button>
+  <input id="upload_button" type="submit" value="Upload">
 </form>
+
+<div id="url_container">
+  <h3> Cache out: </h3>
+  <input id="url_text_field" type="text" value="TODO-HEROKU-URL/<%="Filepath"%>">
+</div>
