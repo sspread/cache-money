@@ -1,121 +1,30 @@
-# Flickr Jr
+> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
 
-## Learning Competencies
+### Purpose
+The Sinatra Skeleton:
 
-* Use the MVC pattern in web applications with proper allocation of code and
-  responsibilities to each layer
-* Implement CRUD in an MVC application
-* Implement user login and authentication in a web application
-* Use AJAX actions to change views based on async data
+1. Provides a foundation for building challenges or creating a new Sinatra application.
+2. Demonstrates a reasonable set of practices around building Sinatra applications.
+3. Eases the transition to Rails for Dev Bootcamp students
 
-## Summary
+### Quickstart
 
-We're going to create a simple version of Flickr.  There will be three core
-domain models: users, albums, and photos.
+1.  `bundle install`
+2.  `shotgun config.ru`
 
-The goal is to become familiar with handling file uploads and also work on more
-advanced AJAX / jQuery techniques.
+As needed, create models & migrations with the `rake` tasks:
 
-## Releases
-
-### Release 0: Wireframes
-
-This application is complicated enough to warrant creating a wireframe.  A user
-should be able to view photos and albums without logging in, but needs to sign
-up or log in in order to upload a photo.
-
-Every photo should belong to an album.  It probably makes sense to
-automatically create a "default album" for every user as soon as they sign up.
-
-We should be able to see all albums for a particular user at a URL like
-
-```text
-/users/:user_id/albums
+```
+rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
+rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
 ```
 
-and every photo in an album at a URL like
+### Contributing
 
-```text
-/albums/:album_id
-```
+We would love for you to help make the skeleton more awesome, There are three ways to contribute:
 
-and a particular photo at a URL like
+1. Ask for a bug fix or enhancement!
+2. Submit a pull request for a bug fix or enhancement!
+3. Code review an open pull request!
 
-```text
-/albums/:album_id/:photo_id
-```
-
-Feel free to change the URL scheme, just don't make it too complicated.
-
-### Release 1: Handling Uploads
-
-For image uploading with Sinatra, we recommend using the following gems:
-
-* [CarrierWave][]
-* [MiniMagick][]
-
-Here's the documentation for [using CarrierWave with MiniMagick][].
-
-To upload a file using an HTML form you need to use the `file` input type and
-set `enctype` in the `form` tag, like so:
-
-```html
-<form action="/whatever" enctype="multipart/form-data">
-  <input type="file" name="filename">
-</form>
-```
-
-
-Read this little blog post on [uploading file with Sinatra][uploading].  Note
-that it uses [HAML][] instead of the default ERB, but it's easy enough to see
-how the HAML translates into HTML.
-
-Sometimes when working with gems, it's necessary to configure them to work
-correctly in your environment. Since the author of CarrierWave doesn't know
-anything about our "Sinatra skeleton", you'll probably need to add some
-configuration to your `environment.rb` file to tell CarrierWave in which
-folder(s) you'd like things to land when they are uploaded. For example:
-
-```ruby
-CarrierWave.configure do |config|
-  # your configuration code goes here
-end
-```
-
-*Hint*: Check out the `root` and `store_dir` configuration variables.
-
-*Pro-tip*: You might want to use your Sinatra Sandbox to play with file uploads
-first, so you understand this one moving part.  Build a toy app before you
-build a fully-featured app.  No albums, no users, just a `photos` table and
-`Photo` model, a form to upload a photo, and a page showing all the photos.
-
-### Release 2: Models, Routes, &amp;
-
-You'll want the following models, at least: `Photo`, `User`, and `Album`.  Get
-everything working without using any AJAX.  This will take a while.
-
-### Release 3: Extending the Basic App
-
-Using the image carousel you wrote earlier today, create a "slideshow mode" for
-the album show page.
-
-What other features can you bring?  What about using [jQuery sortable][] to let
-users rearrange their albums?  AJAX file upload is tricky, so avoid that for
-now.
-
-<!-- ## Optimize Your Learning -->
-
-## Resources
-
-* [CarrierWave][]
-* [MiniMagick][]
-* [CarrierWave with MiniMagick tutorial][using CarrierWave with MiniMagick]
-* [File uploading tag][uploading]
-* [HAML: a "lightweight" templating language][HAML]
-
-[CarrierWave]: https://github.com/jnicklas/carrierwave
-[MiniMagick]: https://github.com/minimagick/minimagick
-[using CarrierWave with MiniMagick]: https://github.com/jnicklas/carrierwave#using-minimagick
-[uploading]: http://www.wooptoot.com/file-upload-with-sinatra
-[HAML]: http://haml.info/
-[jQuery sortable]: http://jqueryui.com/sortable/#display-grid
+Be prepared to give and receive specific, actionable, and kind feedback!
