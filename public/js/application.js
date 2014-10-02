@@ -1,7 +1,13 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $("#upload_form").on("submit", function(event){
+    $("#url_container").hide("slow");
+    event.preventDefault();
+    var upload = $("#upload_form").serialize();
+    $.post("/upload", upload, function(serverResponse){
+      console.log(serverResponse);
+      var uploadUrl = "WORKED-HEROKU-APP/u/"+serverResponse;
+      $("#url_text_field").val(uploadUrl);
+      $("#url_container").show("slow");
+    })
+  });
 });
