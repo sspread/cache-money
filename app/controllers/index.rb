@@ -15,4 +15,3 @@ post '/upload' do
   Upload.create(filepath: params[:filepath], url: url)
   url
 end
-
