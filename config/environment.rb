@@ -21,6 +21,8 @@ require "sinatra/reloader" if development?
 require 'erb'
 
 require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+require 'fog'
 
 require 'mini_magick'
 
@@ -47,3 +49,21 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+#Configure CarrierWave
+CarrierWave.configure do |config|
+  config.fog_credentials = {
+    :provider               => 'AWS',
+    :aws_access_key_id      => ENV['AWS_ACCESS_KEY_ID'],
+    :aws_secret_access_key  => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+  config.fog_directory = 'cache-money'
+end
+
+
+
+
+
+
+
+
