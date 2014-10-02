@@ -19,6 +19,8 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+gem 'fog'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
