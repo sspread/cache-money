@@ -12,9 +12,6 @@ post '/upload' do
   until Upload.find_by(url: url) == nil
     url = url_generator
   end
-  puts "----------"
-  p params[:filepath]
-  puts "----------"
-  Upload.create(filepath: params[:filepath], url: url)
+  Upload.create(filepath: params[:upload], url: url)
   url
 end
