@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $("#upload_form").on("submit", function(event){
-    $("#url_container").hide("slow");
+    $(".loading_sun").show();
+    $("#url_container").animate({opacity: 0.0}, 350);
     event.preventDefault();
     var data = new FormData();
     var upload = $("#upload-form-image")[0].files[0];
@@ -12,19 +13,20 @@ $(document).ready(function() {
       processData: false,
       type: 'POST',
       success: function(serverResponse) {
+        $(".loading_sun").hide();
         var uploadUrl = "/u/"+serverResponse;
         $("#url_text_field").val(uploadUrl);
-        $("#url_container").show("slow");
+        $("#url_container").animate({opacity: 1.0}, 500);
       },
       error: function(serverResponse) {
-        // $("INSERT CONTAINER ON INDEX.ERB").html("<h3>ERROR</h3>");
+        $("#url_text_field").val("Upload failed. Try Again.");
+        $("#url_container").animate({opacity: 1.0}, 500);
       }
     });
   });
-
   $("#download_button").on("click", function(event){
-    url = {url: document.URL.match(/.{3}$/)[0]}
-    console.log(url)
+    url = {url: document.URL.match(/.{3}$/)[0]};
+    console.log(url);
     $.ajax({
       url: '/u',
       data: url,
