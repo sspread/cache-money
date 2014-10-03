@@ -14,3 +14,7 @@
 #url_container {
   display: none;
 }
+
+#cache_out, #url_text_field {
+	color: black;
+}
