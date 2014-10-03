@@ -2,7 +2,7 @@ get '/' do
   erb :index
 end
 
-get 'u/:url' do
+get '/u/:url' do
   @upload = Upload.find_by_url(params[:url])
   erb :download
 end
@@ -12,6 +12,6 @@ post '/upload' do
   until Upload.find_by(url: url) == nil
     url = url_generator
   end
-  Upload.create(filepath: params[:filepath], url: url)
+  Upload.create(filepath: params[:upload], url: url)
   url
 end
