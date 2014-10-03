@@ -1,16 +1,28 @@
-<h1 id="cache_only">Cache Only</h1>
-<div id="space"> </div>
-<br>
-<div id="logo">
-  <h1><i class="fa fa-upload fa-5x"></i></h1>
-</div>
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+										<div id="logo">
+										  <h1><i class="fa fa-upload fa-5x"></i></h1>
+										</div>
+                    <h1 class="brand-heading">Add File</h1>
+                    <h4></h4>
+                </div> 
+                <div class="col-md-4 col-md-offset-4">   
 
-<form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
-  <input id = "upload-form-image" type="file" name="filepath" require="" multiple="multiple" autofocus="" value="Upload File">
-  <input id="upload_button" type="submit" value="Upload">
-</form>
+                    <form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
+										  <input id ="upload-form-image" class="form-control" type="file" name="filepath" require="" multiple="multiple" autofocus="" value="Upload File"><br>
+										  <button class="btn btn-lg btn-primary btn-block" id="upload_button" type="submit" value="Upload">
+										  	Upload
+										  </button>
+										</form>
 
-<div id="url_container">
-  <h3> Cache out: </h3>
-  <input id="url_text_field" type="text" value="TODO-HEROKU-URL/<%="Filepath"%>">
-</div>
+										<div id="url_container"><br>
+										  <h3 id="cache_out"> Cache out: <input id="url_text_field" type="text"></input></h3> 
+										</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
