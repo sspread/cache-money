@@ -14,11 +14,12 @@ $(document).ready(function() {
       type: 'POST',
       success: function(serverResponse) {
         $(".loading_sun").hide();
-        var uploadUrl = "/u/"+serverResponse;
+        var uploadUrl = "cache-only.herokuapp.com/u/"+serverResponse;
         $("#url_text_field").val(uploadUrl);
         $("#url_container").animate({opacity: 1.0}, 500);
       },
       error: function(serverResponse) {
+        $(".loading_sun").hide();
         $("#url_text_field").val("Upload failed. Try Again.");
         $("#url_container").animate({opacity: 1.0}, 500);
       }
